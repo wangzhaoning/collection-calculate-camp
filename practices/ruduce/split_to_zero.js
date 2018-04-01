@@ -8,6 +8,8 @@ function spilt_to_zero(number, interval) {
   while(temp>0)
   {
     temp=temp-interval;
+    temp=parseFloat(temp.toFixed(1));
+   // temp=Math.floor(temp*10)/10;
     result.push(temp);
   }
   return result;

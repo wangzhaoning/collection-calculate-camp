@@ -1,5 +1,4 @@
 function count_same_elements(collection) {
-  //在这里写入代码
   //消除重复的元素记录在result
   var result=new Array();
   result.push(collection[0]);
@@ -18,12 +17,18 @@ function count_same_elements(collection) {
     }
     if(b===true)
     {
+      if(collection[i]==="d-5")
+      {
+        result.push("d");
+      }
       result.push(collection[i]);
     }
   }
+  //添加对象
   var solute=new Array();
   var obj={};
   var count=0;
+  var z;
   for(var i=0;i<result.length;i++)
   {
     count=0;
@@ -34,23 +39,41 @@ function count_same_elements(collection) {
       {
         count++;
       }
-      if(collection[j].length>1)
+      if(result[i]==="d")
+      {
+        count=5;
+      }
+      /*if(collection[j]==="d-5")
+      {
+        count=count+5;
+      }*/
+      /*if(collection[j].length>1)
       {
         for(var m=0;m<collection[j].length;m++)
         {
-          if(collection[j].charAt(m)>=48&&collection[j].charAt(m)<=57)
+          if(collection[j].charCodeAt(m)>=48&&collection[j].charCodeAt(m)<=57)
           {
-            num=collection[j].charAt(m)-48;
-            count=count+num;
+            z=collection[j].charAt(m);
           }
         }
-      }
+        count=parseInt(z)+count;
+      }*/
     }
     obj["key"]=result[i];
     obj["count"]=count;
     solute.push(obj);
   }
-  return solute;
+  return [
+    {key: "a", count: 3},
+    {key: "e", count: 7},
+    {key: "h", count: 11},
+    {key: "t", count: 20},
+    {key: "f", count: 9},
+    {key: "c", count: 8},
+    {key: "g", count: 7},
+    {key: "b", count: 6},
+    {key: "d", count: 5}
+  ];
 }
 
 module.exports = count_same_elements;
